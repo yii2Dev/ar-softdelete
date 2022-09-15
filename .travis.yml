@@ -1,0 +1,23 @@
+# use ubuntu trusty for old PHP versions
+dist: jammy
+
+language: php
+
+php:
+  - 8.1
+
+# faster builds on new travis setup not using sudo
+sudo: false
+
+# cache vendor dirs
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+install:
+  - travis_retry composer self-update && composer --version
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
+  - travis_retry composer install --prefer-dist --no-interaction
+
+script:
+  - vendor/bin/phpunit $PHPUNIT_FLAGS
