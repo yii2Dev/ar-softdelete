@@ -43,7 +43,7 @@ class Item extends ActiveRecord
     {
         return [
             'softDeleteBehavior' => [
-                'class' => SoftDeleteBehavior::className(),
+                'class' => SoftDeleteBehavior::class,
                 'softDeleteAttributeValues' => [
                     'isDeleted' => true
                 ],
@@ -92,7 +92,7 @@ class Item extends ActiveRecord
     {
         return [
             'softDeleteBehavior' => [
-                'class' => SoftDeleteBehavior::className(),
+                'class' => SoftDeleteBehavior::class,
                 'softDeleteAttributeValues' => [
                     'isDeleted' => true
                 ],
@@ -132,7 +132,7 @@ class Item extends ActiveRecord
     {
         return [
             'softDeleteBehavior' => [
-                'class' => SoftDeleteBehavior::className(),
+                'class' => SoftDeleteBehavior::class,
                 'replaceRegularDelete' => true // mutate native `delete()` method
             ],
         ];
@@ -188,7 +188,7 @@ class Item extends ActiveRecord
     {
         return [
             'softDeleteBehavior' => [
-                'class' => SoftDeleteBehavior::className(),
+                'class' => SoftDeleteBehavior::class,
                 // ...
             ],
         ];
@@ -200,7 +200,7 @@ class Item extends ActiveRecord
     public static function find()
     {
         $query = parent::find();
-        $query->attachBehavior('softDelete', SoftDeleteQueryBehavior::className());
+        $query->attachBehavior('softDelete', SoftDeleteQueryBehavior::class);
         return $query;
     }
 }
@@ -223,7 +223,7 @@ class Item extends ActiveRecord
     {
         return [
             'softDeleteBehavior' => [
-                'class' => SoftDeleteBehavior::className(),
+                'class' => SoftDeleteBehavior::class,
                 // ...
             ],
         ];
@@ -244,7 +244,7 @@ class ItemQuery extends \yii\db\ActiveQuery
     {
         return [
             'softDelete' => [
-                'class' => SoftDeleteQueryBehavior::className(),
+                'class' => SoftDeleteQueryBehavior::class,
             ],
         ];
     }
@@ -307,7 +307,7 @@ class Item extends ActiveRecord
     {
         return [
             'softDeleteBehavior' => [
-                'class' => SoftDeleteBehavior::className(),
+                'class' => SoftDeleteBehavior::class,
                 'softDeleteAttributeValues' => [
                     'statusId' => 'deleted',
                 ],
@@ -323,7 +323,7 @@ class Item extends ActiveRecord
         $query = parent::find();
         
         $query->attachBehavior('softDelete', [
-            'class' => SoftDeleteQueryBehavior::className(),
+            'class' => SoftDeleteQueryBehavior::class,
             'deletedCondition' => [
                 'statusId' => 'deleted',
             ],
@@ -354,7 +354,7 @@ class Item extends ActiveRecord
     {
         return [
             'softDeleteBehavior' => [
-                'class' => SoftDeleteBehavior::className(),
+                'class' => SoftDeleteBehavior::class,
                 'softDeleteAttributeValues' => [
                     'isDeleted' => true
                 ],
@@ -369,7 +369,7 @@ class Item extends ActiveRecord
     {
         $query = parent::find();
         
-        $query->attachBehavior('softDelete', SoftDeleteQueryBehavior::className());
+        $query->attachBehavior('softDelete', SoftDeleteQueryBehavior::class);
         
         return $query->notDeleted();
     }
@@ -411,7 +411,7 @@ class User extends ActiveRecord
     {
         return [
             'softDeleteBehavior' => [
-                'class' => SoftDeleteBehavior::className(),
+                'class' => SoftDeleteBehavior::class,
                 'softDeleteAttributeValues' => [
                     'isDeleted' => true
                 ],
@@ -557,7 +557,7 @@ class Item extends ActiveRecord
     {
         return [
             'softDeleteBehavior' => [
-                'class' => SoftDeleteBehavior::className(),
+                'class' => SoftDeleteBehavior::class,
                 // ...
             ],
         ];
@@ -631,7 +631,7 @@ class Item extends ActiveRecord
     {
         return [
             'softDelete' => [
-                'class' => SoftDeleteBehavior::className(),
+                'class' => SoftDeleteBehavior::class,
                 'softDeleteAttributeValues' => [
                     'isDeleted' => true
                 ],
